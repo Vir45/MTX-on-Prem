@@ -1,0 +1,26 @@
+{
+  "xsappname": "st",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "redirect-uris": [
+        "https://6f557890trial-dev-st-approuter.cfapps.us10-001.hana.ondemand.com/login/callback",
+        "https://port5000-workspaces-ws-zblr9.us10.trial.applicationstudio.cloud.sap/login/callback"
+    ]
+}
+}
