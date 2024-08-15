@@ -1,11 +1,18 @@
 {
   "xsappname": "st",
-  "tenant-mode": "dedicated",
+  "tenant-mode": "shared",
   "description": "Security profile of called application",
   "scopes": [
     {
       "name": "uaa.user",
       "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.Callback",
+      "description": "With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called.",
+      "grant-as-authority-to-apps": [
+        "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+      ]
     }
   ],
   "role-templates": [
@@ -19,7 +26,8 @@
   ],
   "oauth2-configuration": {
     "redirect-uris": [
-        "https://6f557890trial-dev-st-approuter.cfapps.us10-001.hana.ondemand.com/login/callback",
+        "https://6f557890trial-st-approuter.cfapps.us10-001.hana.ondemand.com/login/callback",
+        "https://standalone-vwd10k51-st-approuter.cfapps.us10-001.hana.ondemand.com/login/callback",
         "https://port5000-workspaces-ws-zblr9.us10.trial.applicationstudio.cloud.sap/login/callback"
     ]
 }
